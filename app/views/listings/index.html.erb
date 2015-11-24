@@ -1,1 +1,11 @@
 <h4> Todos</h4>
+
+<%@listings.each do |listing|%>
+    <ul>
+      <li><%= link_to listing.description,listing_path(listing) %></li>
+      <li><%= link_to "Edit listing",edit_listing_path(listing) %></li>
+      <li><%= link_to "Destroy",listing, method: :delete, data: { confirm: "Are you sure ?" } %></li>
+    </ul>
+<%end%>
+
+<%= link_to "Create listing", new_listing_path %>
